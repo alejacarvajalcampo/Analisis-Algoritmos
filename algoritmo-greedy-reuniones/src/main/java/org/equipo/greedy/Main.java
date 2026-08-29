@@ -31,7 +31,7 @@ public class Main {
  
             System.out.println();
             System.out.println(
-                    "❌ El horario no es válido."
+                    " El horario no es válido."
             );
             System.out.println(
                     "La hora de inicio debe ser menor que la hora final."
@@ -69,7 +69,7 @@ public class Main {
         while (cantidadReuniones <= 0) {
  
             System.out.println(
-                    "❌ Debe ingresar al menos una reunión."
+                    " Debe ingresar al menos una reunión."
             );
  
             System.out.print(
@@ -103,7 +103,7 @@ public class Main {
  
                 System.out.println();
                 System.out.println(
-                        "❌ La hora de inicio debe ser menor "
+                        " La hora de inicio debe ser menor "
                                 + "que la hora de finalización."
                 );
  
@@ -116,7 +116,7 @@ public class Main {
  
                 System.out.println();
                 System.out.println(
-                        "❌ La reunión está fuera del horario "
+                        " La reunión está fuera del horario "
                                 + "disponible de la sala."
                 );
  
