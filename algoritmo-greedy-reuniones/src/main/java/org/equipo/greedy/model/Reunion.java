@@ -1,4 +1,4 @@
-package org.equipo.greedy.Model;
+package org.equipo.greedy.model;
 
 public class Reunion {
 
