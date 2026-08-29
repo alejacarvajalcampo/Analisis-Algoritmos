@@ -1,7 +1,7 @@
 # Analisis-Algoritmos
 # Planificador de Reuniones - Algoritmo Greedy
 
-## Descripción del proyecto
+## Descripción del proyectO
 
 Este proyecto implementa un **algoritmo Greedy (voraz)** para seleccionar la mayor cantidad posible de reuniones que puedan realizarse en una misma sala sin que sus horarios se superpongan.
 
