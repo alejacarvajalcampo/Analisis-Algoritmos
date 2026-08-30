@@ -139,6 +139,8 @@ A través del planificador de reuniones se evidencia cómo una estrategia de sel
 
 ---
 
+Video presentation: https://www.youtube.com/watch?v=Qyzf2CeRg9Q
+
 ## Integrantes
 
 * ALEJANDRA CARVAJAL CAMPO
