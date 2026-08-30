@@ -12,6 +12,17 @@ realizarse en una única sala sin superposición.
 Se utilizará un algoritmo Greedy basado en seleccionar
 la reunión compatible que termine más temprano.
 
+## Pseudocodigo
+
+Ordenar reuniones por hora de finalización
+
+ultimaHoraFin ← 0
+
+Para cada reunión:
+Si inicio >= ultimaHoraFin:
+seleccionar reunión
+ultimaHoraFin ← fin
+
 ## Tecnologías
 
 - Java
