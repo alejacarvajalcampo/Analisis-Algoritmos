@@ -12,6 +12,21 @@ realizarse en una única sala sin superposición.
 Se utilizará un algoritmo Greedy basado en seleccionar
 la reunión compatible que termine más temprano.
 
+## Nuestra estrategia
+
+Mostrar:
+
+Reuniones
+↓
+Ordenar por hora de finalización
+↓
+Seleccionar la que termina primero
+↓
+Buscar siguiente compatible
+↓
+Repetir
+
+
 ## Pseudocodigo
 
 Ordenar reuniones por hora de finalización
@@ -70,3 +85,5 @@ A → C → E → G
 Total:
 
 4 reuniones.
+
+Video presentacion: https://www.youtube.com/watch?v=Qyzf2CeRg9Q
