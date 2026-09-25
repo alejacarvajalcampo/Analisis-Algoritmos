@@ -15,8 +15,8 @@ Se diseñó un algoritmo basado en la **Teoría de Grafos** que monitorea el com
 ### Funcionamiento del Algoritmo
 
 1. **Modelado matemático:** La red bancaria se representa como un **grafo dirigido** $G = (V, E)$:
-    - **Vértices ($V$):** Cuentas bancarias.
-    - **Aristas dirigidas ($E$):** Transferencias realizadas, almacenando el monto y la marca temporal (*timestamp*).
+    * **Vértices ($V$):** Cuentas bancarias.
+    * **Aristas dirigidas ($E$):** Transferencias realizadas, almacenando el monto y la marca temporal (*timestamp*).
 2. **Estructura de datos:** Para manejar la dispersión de la red bancaria, se implementó una **lista de adyacencia**. Esto permite consultar y registrar las conexiones salientes de cualquier vértice con una complejidad temporal eficiente de $O(1)$ para la inserción.
 3. **Filtrado de subgrafo temporal:** Cada vez que se añade una nueva arista, el algoritmo delimita el grafo aislando únicamente las conexiones emitidas por el vértice de origen en una ventana temporal de los últimos **60 segundos**.
 4. **Detección de anomalías:** Sobre este subgrafo reciente, se calcula el grado de salida dirigido exclusivamente hacia vértices catalogados previamente como **"sospechosos"**. Si este valor alcanza o supera el umbral establecido ($\ge 3$ conexiones a nodos distintos), se detecta un patrón anómalo y se dispara una alerta.
@@ -39,49 +39,52 @@ Para desplegar el proyecto en un entorno local, sigue los siguientes pasos en do
 ### Backend (Servidor)
 
 1. Navega al directorio del backend:
-
 ```bash
-   cd backend
+cd backend
+```
 
-Activa el entorno virtual de Python:
+2. Activa el entorno virtual de Python:
+- Windows:
+```bash
+venv\Scripts\activate
+```
+- Linux/macOS:
+```bash
+source venv/bin/activate
+```
 
-Windows:
+3. Instala las dependencias requeridas (si cuentas con requirements.txt):
+```bash
+pip install -r requirements.txt
+```
+*(Nota: Si no usaste un archivo requirements.txt, instala las dependencias directamente con: `pip install fastapi uvicorn pydantic`)*
 
-Bash
-     venv\Scripts\activate
-     
-Linux/macOS:
+4. Inicia el servidor de desarrollo:
+```bash
+uvicorn main:app --reload
+```
 
-Bash
-     source venv/bin/activate
-     
-Instala las dependencias requeridas:
+### Frontend (Cliente)
 
-Bash
-   pip install -r requirements.txt
-   
-Inicia el servidor de desarrollo:
+1. Navega al directorio del frontend:
+```bash
+cd frontend
+```
 
-Bash
-   uvicorn main:app --reload
-   
-Frontend (Cliente)
-Navega al directorio del frontend:
+2. Instala los paquetes de Node:
+```bash
+npm install
+```
 
-Bash
-   cd frontend
-   
-Instala los paquetes de Node:
+3. Inicia el entorno de desarrollo:
+```bash
+npm run dev
+```
 
-Bash
-   npm install
-   
-Inicia el entorno de desarrollo:
+---
 
-Bash
-   npm run dev
-   
-5. Sustentación
-🎥 Enlace al video de sustentación: https://www.youtube.com/watch?v=uDxAjsE3SkY&feature=youtu.be
+## 5. Sustentación
+
+🎥 **Enlace al video de sustentación:** https://youtu.be/uDxAjsE3SkY
 
 En el video adjunto se explica el problema planteado, la justificación de la estructura de datos elegida, su funcionamiento interno en memoria y la demostración práctica con la interfaz web.
