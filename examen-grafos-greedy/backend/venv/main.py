@@ -5,10 +5,8 @@ import time
 from collections import defaultdict
 from typing import List, Dict, Set
 
-# Inicializar aplicación
 app = FastAPI()
 
-# Permitir conexiones desde el frontend en React
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -59,3 +57,27 @@ class BankGraphModel:
             t.dst for t in recent_transactions if self.accounts[t.dst].is_suspicious
         }
         return len(suspicious_destinations) >= self.suspicious_threshold
+
+graph_model = BankGraphModel(time_window_seconds=10, suspicious_threshold=3)
+
+for acc in ["SUSP_001", "SUSP_002", "SUSP_003", "SUSP_004"]:
+    graph_model.add_account(acc, is_suspicious=True)
+
+class TransferRequest(BaseModel):
+    src: str
+    dst: str
+    amount: float
+
+@app.post("/api/transfer")
+def process_transfer(req: TransferRequest):
+    current_time = time.time()
+    
+    is_anomalous = graph_model.add_transaction(req.src, req.dst, req.amount, current_time)
+    
+    return {
+        "src": req.src,
+        "dst": req.dst,
+        "amount": req.amount,
+        "anomaly_detected": is_anomalous,
+        "message": "Alerta de fraude: Conexiones anómalas en el grafo" if is_anomalous else "Transferencia exitosa"
+    }
