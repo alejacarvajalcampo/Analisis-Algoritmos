@@ -5,7 +5,6 @@ import time
 from collections import defaultdict
 from typing import List, Dict, Set
 
-# Inicializar aplicación
 app = FastAPI()
 
 app.add_middleware(
@@ -16,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- MODELO DE GRAFOS ---
 class Account:
     def __init__(self, account_id: str, is_suspicious: bool = False):
         self.account_id = account_id
@@ -30,7 +28,6 @@ class Transaction:
         self.timestamp = timestamp
 
 class BankGraphModel:
-    # AUMENTÉ LA VENTANA A 60 SEGUNDOS para que tengas tiempo de sobra
     def __init__(self, time_window_seconds: int = 60, suspicious_threshold: int = 3):
         self.accounts: Dict[str, Account] = {}
         self.graph: Dict[str, List[Transaction]] = defaultdict(list)
@@ -56,26 +53,21 @@ class BankGraphModel:
             if current_time - t.timestamp <= self.time_window
         ]
         
-        # Filtra destinos únicos sospechosos
         suspicious_destinations = {
             t.dst for t in recent_transactions if self.accounts[t.dst].is_suspicious
         }
         
-        # LOGS EN CONSOLA: Esto te mostrará qué está pensando el backend
         print(f"\n--- Analizando nodo origen: {src_account_id} ---")
         print(f"Destinos maliciosos únicos contactados: {suspicious_destinations}")
         print(f"Total conectados: {len(suspicious_destinations)} / {self.suspicious_threshold} requeridos para alerta")
         
         return len(suspicious_destinations) >= self.suspicious_threshold
 
-# Instancia global del grafo
 graph_model = BankGraphModel(time_window_seconds=60, suspicious_threshold=3)
 
-# Cargar nodos sospechosos iniciales
 for acc in ["SUSP_001", "SUSP_002", "SUSP_003", "SUSP_004"]:
     graph_model.add_account(acc, is_suspicious=True)
 
-# --- CONTROLADOR / ENDPOINTS ---
 class TransferRequest(BaseModel):
     src: str
     dst: str
@@ -85,11 +77,9 @@ class TransferRequest(BaseModel):
 def process_transfer(req: TransferRequest):
     current_time = time.time()
     
-    # CORRECCIÓN DE ERRORES HUMANOS: Quita espacios y fuerza a mayúsculas
     src_clean = req.src.strip().upper()
     dst_clean = req.dst.strip().upper()
     
-    # Se evalúa el grafo
     is_anomalous = graph_model.add_transaction(src_clean, dst_clean, req.amount, current_time)
     
     return {
