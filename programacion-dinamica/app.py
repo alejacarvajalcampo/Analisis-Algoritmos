@@ -1,6 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify
-from optimizer import optimizar_pipeline
+from optimizer import optimizar_pipeline  # Importamos la lógica separada
 
 app = Flask(__name__)
 
@@ -26,8 +26,10 @@ def optimizar():
     except ValueError:
         return jsonify({"error": "El tiempo límite debe ser un número entero"}), 400
     
+    # Llamada a la lógica de negocio importada desde optimizer.py
     valor_total, seleccionadas, tiempo_usado = optimizar_pipeline(SUITES_DISPONIBLES, tiempo_limite)
     
+    # Construcción de la respuesta JSON (Resultados obtenidos)
     return jsonify({
         "mensaje": "Optimización calculada correctamente mediante Programación Dinámica",
         "parametros_entrada": {
