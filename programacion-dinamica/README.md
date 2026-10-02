@@ -38,3 +38,5 @@ Al utilizar librerías estándar de Python, el proyecto no requiere instalación
 3. Ejecutar el aplicativo:
    ```bash
    python gui.py
+
+### video: ### 3. https://www.youtube.com/watch?v=VNBN_h4TFcg&feature=youtu.be
