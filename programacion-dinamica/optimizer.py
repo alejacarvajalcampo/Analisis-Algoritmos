@@ -1,8 +1,12 @@
+# optimizer.py
+
 def optimizar_pipeline(suites, tiempo_maximo):
+    """
+    Algoritmo de Programación Dinámica: El Problema de la Mochila (0/1 Knapsack)
+    """
     n = len(suites)
     
     dp = [[0 for _ in range(tiempo_maximo + 1)] for _ in range(n + 1)]
-
 
     for i in range(1, n + 1):
         nombre, tiempo, valor = suites[i-1]
