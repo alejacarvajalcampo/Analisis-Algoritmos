@@ -24,3 +24,14 @@ https://leetcode.com/problems/edit-distance/description/
 
 ![Accepted — Edit Distance](evidencias/edit-distance-accepted.png)
 
+## 300. Longest Increasing Subsequence
+
+https://leetcode.com/problems/longest-increasing-subsequence/description/
+
+**Autor:** Josué Acosta Londoño (`Josue`)  
+
+**Familia e Idea:** Programación dinámica (DP). El `dp[i]` almacena la longitud de la subsecuencia creciente (LIS) más larga que termina obligatoriamente en el índice $i$. La base es `dp[i] = 1` para todo $i$, ya que un elemento solo ya forma una subsecuencia válida. La recurrencia consiste en revisar todos los elementos anteriores ($j < i$); si el elemento anterior es menor (`nums[j] < nums[i]`), entonces `dp[i] = max(dp[i], 1 + dp[j])`. Finalmente, la respuesta se halla buscando el máximo global en toda la tabla, ya que la LIS no necesariamente termina en el último elemento.  
+
+**Complejidad:** Tiempo $\Theta(n^2)$ ya que por cada uno de los $n$ elementos se revisan todos los $j$ elementos anteriores como un doble ciclo anidado. Espacio $\Theta(n)$ extra requerido para almacenar el arreglo `dp` unidimensional con las longitudes máximas hasta cada índice.
+
+![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
