@@ -20,6 +20,7 @@ https://leetcode.com/problems/edit-distance/description/
 
 **Familia e Idea:** Programación dinámica (DP). El `dp[i][j]` almacena el mínimo de operaciones requeridas para convertir el prefijo `word1[0..i)` en `word2[0..j)`. La base se define como `dp[i][0] = i` (costo de borrar $i$ letras para vaciar la cadena) y `dp[0][j] = j` costo de insertar $j$ letras. La recurrencia dicta que si las letras actuales coinciden, el costo es `dp[i-1][j-1]`; de lo contrario, se toma el costo de la mejor edición: `1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])` que corresponden a borrar, insertar o sustituir respectivamente.  
 
-**Complejidad:** Tiempo $\Theta(n \cdot m)$ y Espacio $\Theta(n \cdot m)$, donde $n$ es la longitud de `word1` y $m$ la longitud de `word2`. Se construye y recorre una matriz de tamaño $(n+1) \times (m+1)$ haciendo comparaciones de tiempo constante $O(1)$ en cada celda.
+**Complejidad:** Tiempo $\Theta(n \cdot m)$ y Espacio $\Theta(n \cdot m)$, donde $n$ es la longitud de word1 y $m$ la longitud de word2. Se construye y recorre una matriz de tamaño $(n+1) \times (m+1)$ haciendo comparaciones de tiempo constante $O(1)$ en cada celda.
 
 ![Accepted — Edit Distance](evidencias/edit-distance-accepted.png)
+
