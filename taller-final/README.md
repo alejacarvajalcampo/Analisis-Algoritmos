@@ -26,6 +26,7 @@ https://leetcode.com/problems/edit-distance/description/
 
 ![Accepted — Edit Distance](evidencias/edit-distance-accepted.png)
 
+<<<<<<< HEAD
 ## 300. Longest Increasing Subsequence
 
 **Autor:** Josué Acosta Londoño (`Josue`)  
@@ -39,3 +40,39 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 **Complejidad:** Tiempo $\Theta(n^2)$ ya que por cada uno de los $n$ elementos se revisan todos los $j$ elementos anteriores como un doble ciclo anidado. Espacio $\Theta(n)$ extra requerido para almacenar el arreglo `dp` unidimensional con las longitudes máximas hasta cada índice.
 
 ![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
+=======
+## Ejercicio 7: Gas Station
+
+### Explicación del algoritmo
+
+![Explicación del algoritmo Gas Station](evidencias/gas-station-explicacion.png)
+
+### Resultado de ejecución
+
+![Resultado de ejecución](evidencias/gas-station-resultado.png)
+
+## Ejercicio 8: Word Search
+
+**Autor:** Argenis Alejandro Ruiz Cotes
+
+**Problema:** [79. Word Search](https://leetcode.com/problems/word-search/)
+
+**Familia:** Backtracking
+
+### Explicación del algoritmo
+
+Se utiliza Backtracking para buscar la palabra en la matriz. Se elige una celda, se exploran sus vecinos y, si el camino no funciona, se deshace la elección restaurando la letra original.
+
+- **Qué se elige:** una celda vecina que contiene la siguiente letra.
+- **Qué se deshace:** la marca de visitada, restaurando la letra original.
+- **Complejidad temporal:** O(m × n × 4^L).
+- **Complejidad espacial:** O(L).
+
+### Código
+
+[Ver implementación](word-search/word-search.py)
+
+### Evidencia de LeetCode
+
+![Word Search Accepted](evidencias/word-search-accepted.png)
+>>>>>>> b91a16e (Agrega ejercicios Gas Station y Word Search)
