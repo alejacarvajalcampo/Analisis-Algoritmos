@@ -1,42 +1,42 @@
 ## 215. Kth Largest Element in an Array
 
-Autor: Alejandra Carvajal Campo
+**Autor:** Alejandra Carvajal Campo
 
 https://leetcode.com/problems/kth-largest-element-in-an-array/
 
-Familia: Heap (Min-Heap).
+**Familia:** Heap (Min-Heap).
 
-Idea: Se utiliza un Min-Heap de tamaño máximo k para mantener los k elementos más grandes del arreglo. Se recorren los elementos de nums y se insertan uno por uno en el heap. Cuando su tamaño supera k, se elimina el elemento más pequeño mediante heappop, garantizando que siempre se conserven únicamente los k mayores elementos encontrados. Al finalizar el recorrido, la raíz del Min-Heap contiene el k-ésimo elemento más grande del arreglo, sin necesidad de ordenar todos los elementos.
+**Idea:** Se utiliza un Min-Heap de tamaño máximo k para mantener los k elementos más grandes del arreglo. Se recorren los elementos de nums y se insertan uno por uno en el heap. Cuando su tamaño supera k, se elimina el elemento más pequeño mediante heappop, garantizando que siempre se conserven únicamente los k mayores elementos encontrados. Al finalizar el recorrido, la raíz del Min-Heap contiene el k-ésimo elemento más grande del arreglo, sin necesidad de ordenar todos los elementos.
 
-Complejidad: Tiempo $O(n \log k)$, donde $n$ es la cantidad de elementos de nums y $k$ es la posición del elemento más grande que se desea encontrar. Cada inserción y eliminación en el heap tiene un costo de $O(\log k)$ y se procesan los $n$ elementos. Espacio $O(k)$ extra para mantener el Min-Heap con un máximo de k elementos.
+**Complejidad:** Tiempo $O(n \log k)$, donde $n$ es la cantidad de elementos de nums y $k$ es la posición del elemento más grande que se desea encontrar. Cada inserción y eliminación en el heap tiene un costo de $O(\log k)$ y se procesan los $n$ elementos. Espacio $O(k)$ extra para mantener el Min-Heap con un máximo de k elementos.
 
 ![Accepted — Kth Largest Element in an Array](evidencias/kth-largest-accepted.png)
 
 ## 179. Largest Number
 
-Autor: Alejandra Carvajal Campo
+**Autor:** Alejandra Carvajal Campo
 
 https://leetcode.com/problems/largest-number/
 
-Familia: Ordenamiento (comparador personalizado).
+**Familia:** Ordenamiento (comparador personalizado).
 
-Idea: Se convierten los números del arreglo en cadenas de texto para realizar un ordenamiento mediante un comparador personalizado. La comparación entre dos elementos a y b se realiza evaluando las concatenaciones a + b y b + a. Si a + b es mayor, a debe ubicarse primero; de lo contrario, se coloca b antes que a. De esta manera, se determina el orden que produce el número concatenado de mayor valor posible. Finalmente, se unen las cadenas ordenadas para construir el resultado. También se contempla el caso especial en el que todos los elementos son cero, retornando "0" en lugar de una cadena de ceros repetidos.
+**Idea:** Se convierten los números del arreglo en cadenas de texto para realizar un ordenamiento mediante un comparador personalizado. La comparación entre dos elementos a y b se realiza evaluando las concatenaciones a + b y b + a. Si a + b es mayor, a debe ubicarse primero; de lo contrario, se coloca b antes que a. De esta manera, se determina el orden que produce el número concatenado de mayor valor posible. Finalmente, se unen las cadenas ordenadas para construir el resultado. También se contempla el caso especial en el que todos los elementos son cero, retornando "0" en lugar de una cadena de ceros repetidos.
 
-Complejidad: Tiempo $O(n \log n)$ comparaciones, donde $n$ es la cantidad de números del arreglo. Cada comparación tiene un costo proporcional a la longitud de las cadenas involucradas, debido a la concatenación y comparación de caracteres. Espacio $O(n)$ para almacenar las representaciones en cadenas y construir el resultado.
+**Complejidad:** Tiempo $O(n \log n)$ comparaciones, donde $n$ es la cantidad de números del arreglo. Cada comparación tiene un costo proporcional a la longitud de las cadenas involucradas, debido a la concatenación y comparación de caracteres. Espacio $O(n)$ para almacenar las representaciones en cadenas y construir el resultado.
 
 ![Accepted — Largest Number](evidencias/largest-number-accepted.png)
 
 ## 743. Network Delay Time
 
-Autor: Alejandra Carvajal Campo
+**Autor:** Alejandra Carvajal Campo
 
 https://leetcode.com/problems/network-delay-time/
 
-Familia: Grafos (Dijkstra).
+**Familia:** Grafos (Dijkstra).
 
-Idea: Se representa la red mediante un grafo dirigido y ponderado utilizando una lista de adyacencia, donde cada conexión contiene un nodo destino y el peso correspondiente al tiempo de transmisión. Se aplica el algoritmo de Dijkstra desde el nodo inicial k, utilizando un Min-Heap para seleccionar siempre el nodo con la menor distancia acumulada. Se inicializan todas las distancias en infinito, excepto la del nodo de origen, que comienza en cero. Durante el recorrido se actualizan las distancias cuando se encuentra un camino más corto hacia un vecino. Al finalizar, se obtiene la distancia máxima entre todos los nodos, ya que representa el tiempo que debe transcurrir para que la señal llegue al último nodo. Si existe algún nodo cuya distancia permanece en infinito, significa que no es alcanzable y se retorna -1.
+**Idea:** Se representa la red mediante un grafo dirigido y ponderado utilizando una lista de adyacencia, donde cada conexión contiene un nodo destino y el peso correspondiente al tiempo de transmisión. Se aplica el algoritmo de Dijkstra desde el nodo inicial k, utilizando un Min-Heap para seleccionar siempre el nodo con la menor distancia acumulada. Se inicializan todas las distancias en infinito, excepto la del nodo de origen, que comienza en cero. Durante el recorrido se actualizan las distancias cuando se encuentra un camino más corto hacia un vecino. Al finalizar, se obtiene la distancia máxima entre todos los nodos, ya que representa el tiempo que debe transcurrir para que la señal llegue al último nodo. Si existe algún nodo cuya distancia permanece en infinito, significa que no es alcanzable y se retorna -1.
 
-Complejidad: Tiempo $O((n + m) \log n)$, donde $n$ es la cantidad de nodos y $m$ es la cantidad de conexiones almacenadas en times. Se construye la lista de adyacencia en $O(n + m)$ y se utiliza un Min-Heap para procesar los nodos y actualizar las distancias. Espacio $O(n + m)$ para almacenar el grafo, el arreglo de distancias y la cola de prioridad.
+**Complejidad:** Tiempo $O((n + m) \log n)$, donde $n$ es la cantidad de nodos y $m$ es la cantidad de conexiones almacenadas en times. Se construye la lista de adyacencia en $O(n + m)$ y se utiliza un Min-Heap para procesar los nodos y actualizar las distancias. Espacio $O(n + m)$ para almacenar el grafo, el arreglo de distancias y la cola de prioridad.
 
 ![Accepted — Network Delay Time](evidencias/network-delay-time-accepted.png)
 
@@ -88,9 +88,9 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 
 https://leetcode.com/problems/gas-station/description/
 
-**Idea:** Greedy.
+**Familia:** Greedy.
 
-**Familia**: Si la suma total de gasolina es menor al costo total, el circuito es imposible. En un único recorrido lineal, el criterio local consiste en acumular el saldo del tanque (gas[i] - cost[i]). si el saldo se vuelve negativo, ninguna estación del tramo recorrido sirve como inicio, por lo que se descarta, se reinicia el tanque en cero y se elige la siguiente estación (i + 1) como nuevo candidato.  
+**Idea**: Si la suma total de gasolina es menor al costo total, el circuito es imposible. En un único recorrido lineal, el criterio local consiste en acumular el saldo del tanque (gas[i] - cost[i]). si el saldo se vuelve negativo, ninguna estación del tramo recorrido sirve como inicio, por lo que se descarta, se reinicia el tanque en cero y se elige la siguiente estación (i + 1) como nuevo candidato.  
 
 **Complejidad:** Tiempo $O(n)$, donde $n$ es la cantidad de estaciones, ya que se realiza una sola pasada sobre los arreglos. Espacio $O(1)$ auxiliar, utilizando únicamente variables escalares para el saldo del tanque y el índice de inicio.
 
@@ -102,11 +102,9 @@ https://leetcode.com/problems/gas-station/description/
 
 **Problema:** [79. Word Search](https://leetcode.com/problems/word-search/)
 
-**Autor:** Argenis Alejandro Ruiz Cotes (@usuario-git)  
+**Familia:** Backtracking.
 
-**Idea:** Backtracking.
-
-**Familia**  Se lanza una búsqueda desde cada celda de la matriz que coincida con la primera letra de la palabra. En cada paso se elige una celda vecina ortogonal con la siguiente letra y se marca como visitada; si la rama no completa la palabra, se deshace la elección restaurando la letra original en la matriz para permitir que otros caminos la utilicen.  
+**Idea**  Se lanza una búsqueda desde cada celda de la matriz que coincida con la primera letra de la palabra. En cada paso se elige una celda vecina ortogonal con la siguiente letra y se marca como visitada; si la rama no completa la palabra, se deshace la elección restaurando la letra original en la matriz para permitir que otros caminos la utilicen.  
 
 **Complejidad:** Tiempo $O(m \cdot n \cdot 4^L)$, donde m y n son las dimensiones de la matriz (filas y columnas) y L es la longitud de la palabra, al explorar hasta 4 direcciones en cada nivel de profundidad. Espacio $O(L)$ auxiliar correspondiente a la profundidad máxima de la pila de recursión.
 
