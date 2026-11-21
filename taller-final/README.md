@@ -1,4 +1,4 @@
-215. Kth Largest Element in an Array
+## 215. Kth Largest Element in an Array
 
 Autor: Alejandra Carvajal Campo
 
@@ -10,9 +10,9 @@ Idea: Se utiliza un Min-Heap de tamaño máximo k para mantener los k elementos 
 
 Complejidad: Tiempo $O(n \log k)$, donde $n$ es la cantidad de elementos de nums y $k$ es la posición del elemento más grande que se desea encontrar. Cada inserción y eliminación en el heap tiene un costo de $O(\log k)$ y se procesan los $n$ elementos. Espacio $O(k)$ extra para mantener el Min-Heap con un máximo de k elementos.
 
+![Accepted — Kth Largest Element in an Array](evidencias/kth-largest-accepted.png)
 
-
-179. Largest Number
+## 179. Largest Number
 
 Autor: Alejandra Carvajal Campo
 
@@ -24,9 +24,9 @@ Idea: Se convierten los números del arreglo en cadenas de texto para realizar u
 
 Complejidad: Tiempo $O(n \log n)$ comparaciones, donde $n$ es la cantidad de números del arreglo. Cada comparación tiene un costo proporcional a la longitud de las cadenas involucradas, debido a la concatenación y comparación de caracteres. Espacio $O(n)$ para almacenar las representaciones en cadenas y construir el resultado.
 
+![Accepted — Largest Number](evidencias/largest-number-accepted.png)
 
-
-743. Network Delay Time
+## 743. Network Delay Time
 
 Autor: Alejandra Carvajal Campo
 
@@ -37,6 +37,8 @@ Familia: Grafos (Dijkstra).
 Idea: Se representa la red mediante un grafo dirigido y ponderado utilizando una lista de adyacencia, donde cada conexión contiene un nodo destino y el peso correspondiente al tiempo de transmisión. Se aplica el algoritmo de Dijkstra desde el nodo inicial k, utilizando un Min-Heap para seleccionar siempre el nodo con la menor distancia acumulada. Se inicializan todas las distancias en infinito, excepto la del nodo de origen, que comienza en cero. Durante el recorrido se actualizan las distancias cuando se encuentra un camino más corto hacia un vecino. Al finalizar, se obtiene la distancia máxima entre todos los nodos, ya que representa el tiempo que debe transcurrir para que la señal llegue al último nodo. Si existe algún nodo cuya distancia permanece en infinito, significa que no es alcanzable y se retorna -1.
 
 Complejidad: Tiempo $O((n + m) \log n)$, donde $n$ es la cantidad de nodos y $m$ es la cantidad de conexiones almacenadas en times. Se construye la lista de adyacencia en $O(n + m)$ y se utiliza un Min-Heap para procesar los nodos y actualizar las distancias. Espacio $O(n + m)$ para almacenar el grafo, el arreglo de distancias y la cola de prioridad.
+
+![Accepted — Network Delay Time](evidencias/network-delay-time-accepted.png)
 
 ## 1584. Min Cost to Connect All Points
 
@@ -66,7 +68,6 @@ https://leetcode.com/problems/edit-distance/description/
 
 ![Accepted — Edit Distance](evidencias/edit-distance-accepted.png)
 
-<<<<<<< HEAD
 ## 300. Longest Increasing Subsequence
 
 **Autor:** Josué Acosta Londoño (`Josue`)  
@@ -80,7 +81,6 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 **Complejidad:** Tiempo $\Theta(n^2)$ ya que por cada uno de los $n$ elementos se revisan todos los $j$ elementos anteriores como un doble ciclo anidado. Espacio $\Theta(n)$ extra requerido para almacenar el arreglo `dp` unidimensional con las longitudes máximas hasta cada índice.
 
 ![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
-=======
 ## Ejercicio 7: Gas Station
 
 ### Explicación del algoritmo
@@ -115,4 +115,3 @@ Se utiliza Backtracking para buscar la palabra en la matriz. Se elige una celda,
 ### Evidencia de LeetCode
 
 ![Word Search Accepted](evidencias/word-search-accepted.png)
->>>>>>> b91a16e (Agrega ejercicios Gas Station y Word Search)
