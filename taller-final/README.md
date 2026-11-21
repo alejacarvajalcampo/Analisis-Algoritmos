@@ -81,15 +81,20 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 **Complejidad:** Tiempo $\Theta(n^2)$ ya que por cada uno de los $n$ elementos se revisan todos los $j$ elementos anteriores como un doble ciclo anidado. Espacio $\Theta(n)$ extra requerido para almacenar el arreglo `dp` unidimensional con las longitudes máximas hasta cada índice.
 
 ![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
+
 ## Ejercicio 7: Gas Station
 
-### Explicación del algoritmo
+**Autor:** Argenis Alejandro Ruiz Cotes  
 
-![Explicación del algoritmo Gas Station](evidencias/gas-station-explicacion.png)
+https://leetcode.com/problems/gas-station/description/
 
-### Resultado de ejecución
+**Idea:** Greedy.
 
-![Resultado de ejecución](evidencias/gas-station-resultado.png)
+**Familia**: Si la suma total de gasolina es menor al costo total, el circuito es imposible. En un único recorrido lineal, el criterio local consiste en acumular el saldo del tanque (gas[i] - cost[i]). si el saldo se vuelve negativo, ninguna estación del tramo recorrido sirve como inicio, por lo que se descarta, se reinicia el tanque en cero y se elige la siguiente estación (i + 1) como nuevo candidato.  
+
+**Complejidad:** Tiempo $O(n)$, donde $n$ es la cantidad de estaciones, ya que se realiza una sola pasada sobre los arreglos. Espacio $O(1)$ auxiliar, utilizando únicamente variables escalares para el saldo del tanque y el índice de inicio.
+
+![Resultado de ejecución](evidencias/gas-station-explicacion.png)
 
 ## Ejercicio 8: Word Search
 
@@ -97,21 +102,12 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 
 **Problema:** [79. Word Search](https://leetcode.com/problems/word-search/)
 
-**Familia:** Backtracking
+**Autor:** Argenis Alejandro Ruiz Cotes (@usuario-git)  
 
-### Explicación del algoritmo
+**Idea:** Backtracking.
 
-Se utiliza Backtracking para buscar la palabra en la matriz. Se elige una celda, se exploran sus vecinos y, si el camino no funciona, se deshace la elección restaurando la letra original.
+**Familia**  Se lanza una búsqueda desde cada celda de la matriz que coincida con la primera letra de la palabra. En cada paso se elige una celda vecina ortogonal con la siguiente letra y se marca como visitada; si la rama no completa la palabra, se deshace la elección restaurando la letra original en la matriz para permitir que otros caminos la utilicen.  
 
-- **Qué se elige:** una celda vecina que contiene la siguiente letra.
-- **Qué se deshace:** la marca de visitada, restaurando la letra original.
-- **Complejidad temporal:** O(m × n × 4^L).
-- **Complejidad espacial:** O(L).
+**Complejidad:** Tiempo $O(m \cdot n \cdot 4^L)$, donde m y n son las dimensiones de la matriz (filas y columnas) y L es la longitud de la palabra, al explorar hasta 4 direcciones en cada nivel de profundidad. Espacio $O(L)$ auxiliar correspondiente a la profundidad máxima de la pila de recursión.
 
-### Código
-
-[Ver implementación](word-search/word-search.py)
-
-### Evidencia de LeetCode
-
-![Word Search Accepted](evidencias/word-search-accepted.png)
+![Resultado de Ejecucion](evidencias/word-search-accepted.png)
