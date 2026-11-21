@@ -1,3 +1,13 @@
+## Tabla de autoría
+
+| Integrante | Usuario de git | Ejercicios |
+| --- | --- | --- |
+| Alejandra carvajal Campo | `alejacarvajalcampo` | 215, 179, 743 |
+| Josué Acosta Londoño | `josueac2001` | 1584, 72, 300 |
+| Argenis Alejandro Ruiz Cotes | `alejandro310209` | 134, 79 |
+
+
+
 ## 215. Kth Largest Element in an Array
 
 **Autor:** Alejandra Carvajal Campo
@@ -82,7 +92,7 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 
 ![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
 
-## Ejercicio 7: Gas Station
+## 134. Gas Station
 
 **Autor:** Argenis Alejandro Ruiz Cotes  
 
@@ -96,7 +106,7 @@ https://leetcode.com/problems/gas-station/description/
 
 ![Resultado de ejecución](evidencias/gas-station-explicacion.png)
 
-## Ejercicio 8: Word Search
+## 79. Word Search
 
 **Autor:** Argenis Alejandro Ruiz Cotes
 
