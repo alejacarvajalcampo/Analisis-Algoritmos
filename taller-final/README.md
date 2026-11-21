@@ -20,6 +20,8 @@ https://leetcode.com/problems/kth-largest-element-in-an-array/
 
 **Complejidad:** Tiempo $O(n \log k)$, donde $n$ es la cantidad de elementos de nums y $k$ es la posición del elemento más grande que se desea encontrar. Cada inserción y eliminación en el heap tiene un costo de $O(\log k)$ y se procesan los $n$ elementos. Espacio $O(k)$ extra para mantener el Min-Heap con un máximo de k elementos.
 
+**Código:** [Ver solución](kth-largest/kth-largest)
+
 ![Accepted — Kth Largest Element in an Array](evidencias/kth-largest-accepted.png)
 
 ## 179. Largest Number
@@ -33,6 +35,8 @@ https://leetcode.com/problems/largest-number/
 **Idea:** Se convierten los números del arreglo en cadenas de texto para realizar un ordenamiento mediante un comparador personalizado. La comparación entre dos elementos a y b se realiza evaluando las concatenaciones a + b y b + a. Si a + b es mayor, a debe ubicarse primero; de lo contrario, se coloca b antes que a. De esta manera, se determina el orden que produce el número concatenado de mayor valor posible. Finalmente, se unen las cadenas ordenadas para construir el resultado. También se contempla el caso especial en el que todos los elementos son cero, retornando "0" en lugar de una cadena de ceros repetidos.
 
 **Complejidad:** Tiempo $O(n \log n)$ comparaciones, donde $n$ es la cantidad de números del arreglo. Cada comparación tiene un costo proporcional a la longitud de las cadenas involucradas, debido a la concatenación y comparación de caracteres. Espacio $O(n)$ para almacenar las representaciones en cadenas y construir el resultado.
+
+**Código:** [Ver solución](largest-number/largest-number)
 
 ![Accepted — Largest Number](evidencias/largest-number-accepted.png)
 
@@ -48,6 +52,8 @@ https://leetcode.com/problems/network-delay-time/
 
 **Complejidad:** Tiempo $O((n + m) \log n)$, donde $n$ es la cantidad de nodos y $m$ es la cantidad de conexiones almacenadas en times. Se construye la lista de adyacencia en $O(n + m)$ y se utiliza un Min-Heap para procesar los nodos y actualizar las distancias. Espacio $O(n + m)$ para almacenar el grafo, el arreglo de distancias y la cola de prioridad.
 
+**Código:** [Ver solución](network-delay-time/network-delay-time)
+
 ![Accepted — Network Delay Time](evidencias/network-delay-time-accepted.png)
 
 ## 1584. Min Cost to Connect All Points
@@ -61,6 +67,8 @@ https://leetcode.com/problems/min-cost-to-connect-all-points/description/
 **Idea:** A diferencia de Dijkstra que busca caminos más cortos, aquí el objetivo es conectar a todos los nodos minimizando la suma total de la red (MST). El grafo es completo y el peso es la distancia Manhattan. Se optó por usar el algoritmo de Prim. se inicia en un punto arbitrario y, usando una cola de prioridad, se hace crecer el árbol seleccionando iterativamente la arista más barata que conecte el árbol actual con un punto no visitado.  
 
 **Complejidad:** Tiempo $O(n^2 \log n)$ implementado con un min-heap, donde n es points.length; como el grafo es denso y exploramos todas las conexiones posibles desde cada nodo hacia los demás, se insertan hasta $n^2$ aristas en el heap, y cada extracción cuesta $O(\log n^2) = O(\log n)$. Espacio $O(n^2)$ en el peor caso para mantener la frontera de aristas en la cola de prioridad.
+
+**Código:** [Ver solución](min-cost-to-connect-all-points/min-cost-to-connect-all-points.py)
 
 ![Accepted — Min Cost to Connect All Points](evidencias/min-cost-to-connect-all-points-accepted.png)
 
@@ -76,6 +84,8 @@ https://leetcode.com/problems/edit-distance/description/
 
 **Complejidad:** Tiempo $\Theta(n \cdot m)$ y Espacio $\Theta(n \cdot m)$, donde $n$ es la longitud de word1 y $m$ la longitud de word2. Se construye y recorre una matriz de tamaño $(n+1) \times (m+1)$ haciendo comparaciones de tiempo constante $O(1)$ en cada celda.
 
+**Código:** [Ver solución](edit-distance/edit-distance.py)
+
 ![Accepted — Edit Distance](evidencias/edit-distance-accepted.png)
 
 ## 300. Longest Increasing Subsequence
@@ -89,6 +99,8 @@ https://leetcode.com/problems/longest-increasing-subsequence/description/
 **Idea:** El `dp[i]` almacena la longitud de la subsecuencia creciente (LIS) más larga que termina obligatoriamente en el índice $i$. La base es `dp[i] = 1` para todo $i$, ya que un elemento solo ya forma una subsecuencia válida. La recurrencia consiste en revisar todos los elementos anteriores ($j < i$); si el elemento anterior es menor (`nums[j] < nums[i]`), entonces `dp[i] = max(dp[i], 1 + dp[j])`. Finalmente, la respuesta se halla buscando el máximo global en toda la tabla, ya que la LIS no necesariamente termina en el último elemento.  
 
 **Complejidad:** Tiempo $\Theta(n^2)$ ya que por cada uno de los $n$ elementos se revisan todos los $j$ elementos anteriores como un doble ciclo anidado. Espacio $\Theta(n)$ extra requerido para almacenar el arreglo `dp` unidimensional con las longitudes máximas hasta cada índice.
+
+**Código:** [Ver solución](longest-increasing-subsequence/longest-increasing-subsequence.py)
 
 ![Accepted — Longest Increasing Subsequence](evidencias/longest-increasing-subsequence-accepted.png)
 
@@ -104,6 +116,8 @@ https://leetcode.com/problems/gas-station/description/
 
 **Complejidad:** Tiempo $O(n)$, donde $n$ es la cantidad de estaciones, ya que se realiza una sola pasada sobre los arreglos. Espacio $O(1)$ auxiliar, utilizando únicamente variables escalares para el saldo del tanque y el índice de inicio.
 
+**Código:** [Ver solución](gas-station/gas-station.py)
+
 ![Resultado de ejecución](evidencias/gas-station-explicacion.png)
 
 ## 79. Word Search
@@ -117,5 +131,7 @@ https://leetcode.com/problems/gas-station/description/
 **Idea**  Se lanza una búsqueda desde cada celda de la matriz que coincida con la primera letra de la palabra. En cada paso se elige una celda vecina ortogonal con la siguiente letra y se marca como visitada; si la rama no completa la palabra, se deshace la elección restaurando la letra original en la matriz para permitir que otros caminos la utilicen.  
 
 **Complejidad:** Tiempo $O(m \cdot n \cdot 4^L)$, donde m y n son las dimensiones de la matriz (filas y columnas) y L es la longitud de la palabra, al explorar hasta 4 direcciones en cada nivel de profundidad. Espacio $O(L)$ auxiliar correspondiente a la profundidad máxima de la pila de recursión.
+
+**Código:** [Ver solución](word-search/word-search.py)
 
 ![Resultado de Ejecucion](evidencias/word-search-accepted.png)
